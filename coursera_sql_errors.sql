@@ -68,6 +68,31 @@ FROM dsv1069.events
 WHERE events.event_name = 'view_item';
 
 
+/*
+Exercise 5:
+--Goal:Compute the number of items in the items table which have been ordered. The query
+below runs, but it isn’t right. Determine what is wrong and correct the error or start from scratch.
+
+Starter Code:
+SELECT
+    COUNT(item_id) AS item_count
+FROM dsv1069.orders 
+INNER JOIN dsv1069.items
+ON orders.item_id = item.id;
+
+--Error: This query runs but the number isn’t right
+*/
+
+-- SOLUTION
+
+-- Table is quite right, however i fine tuned it with table name aliases to make more readable
+
+SELECT COUNT(item_id) AS item_count
+FROM dsv1069.orders AS o
+JOIN dsv1069.items AS i
+ON i.id = o.item_id;
+
+
 
 
 
